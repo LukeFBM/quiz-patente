@@ -1,0 +1,129 @@
+{
+  "data": [
+    {
+      "title": "Veicoli",
+      "domande": [
+        {
+          "domanda": "I veicoli a due ruote, con motore termico fino a 50 cm3 di cilindrata e velocità massima di 45 km/h sono ciclomotori",
+          "valore": true
+        },
+        {
+          "domanda": "Le biciclette con pedalata assistita, dotate di motore elettrico ausiliario di potenza massima fino a 0,25 kW, sono definite ciclomotori",
+          "valore": false
+        },
+        {
+          "domanda": "Si definiscono ciclomotori tutti i veicoli a due ruote di cilindrata superiore a 50 cm3",
+          "valore": false
+        },
+        {
+          "domanda": "I ciclomotori, per essere definiti tali, devono essere muniti di cambio manuale",
+          "valore": false
+        },
+        {
+          "domanda": "I ciclomotori possono circolare alla velocità di 60 km/h fuori dai centri urbani",
+          "valore": false
+        }
+      ]
+    },
+    {
+      "title": "Strada",
+      "domande": [
+        {
+          "domanda": "La strada può essere suddivisa in carreggiate",
+          "valore": true
+        },
+        {
+          "domanda": "La strada non comprende le banchine",
+          "valore": false
+        },
+        {
+          "domanda": "La strada è riservata alla circolazione dei soli autoveicoli e motocicli",
+          "valore": false
+        },
+        {
+          "domanda": "La strada non comprende i marciapiedi",
+          "valore": false
+        },
+        {
+          "domanda": "La strada è qualsiasi area asfaltata, limitata lateralmente dagli attraversamenti pedonali",
+          "valore": false
+        }
+      ]
+    },
+    {
+      "title": "Segnaletica",
+      "domande": [
+        {
+          "domanda": "Il segnale raffigurato preannuncia un tratto di strada deformata",
+          "valore": true
+        },
+        {
+          "domanda": "Il segnale raffigurato preannuncia una discesa pericolosa",
+          "valore": false
+        },
+        {
+          "domanda": "Il segnale raffigurato preannuncia più curve consecutive",
+          "valore": false
+        },
+        {
+          "domanda": "Il segnale raffigurato preannuncia una forte variazione di pendenza della strada",
+          "valore": false
+        },
+        {
+          "domanda": "Il segnale raffigurato preannuncia una doppia curva",
+          "valore": false
+        }
+      ]
+    },
+    {
+      "title": "Comportamento",
+      "domande": [
+        {
+          "domanda": "La distanza di sicurezza non dipende dal tipo di alimentazione del motore (benzina, gasolio, GPL)",
+          "valore": true
+        },
+        {
+          "domanda": "La distanza di sicurezza dipende dalla potenza del veicolo che precede",
+          "valore": false
+        },
+        {
+          "domanda": "La distanza di sicurezza deve essere di almeno 100 metri in caso di nevicata in atto",
+          "valore": false
+        },
+        {
+          "domanda": "La distanza di sicurezza deve essere maggiore se si percorre la corsia d’emergenza",
+          "valore": false
+        },
+        {
+          "domanda": "La distanza di sicurezza deve essere uguale allo spazio di frenatura aumentato di 20 metr",
+          "valore": false
+        }
+      ]
+    },
+    {
+      "title": "Sicurezza",
+      "domande": [
+        {
+          "domanda": "Passare molto vicino ad un auto parcheggiata, a bordo della quale si trovano anche per la possibile apertura imprudente delle portiere",
+          "valore": true
+        },
+        {
+          "domanda": "Passare molto vicino ad un auto parcheggiata, a bordo della quale si trovano ancora persone, può essere pericoloso, solo se si viaggia ad alta velocità",
+          "valore": false
+        },
+        {
+          "domanda": "La distrazione del conducente non è determinata dall uso del “cellulare”",
+          "valore": false
+        },
+        {
+          "domanda": "La distrazione del conducente non rappresenta un pericolo se si limita a pochi secondi",
+          "valore": false
+        },
+        {
+          "domanda": "Passare molto vicino ad un auto parcheggiata, a bordo della quale si trovano ancora persone, è pericoloso solo se il conducente ed alcuni passeggeri sono già scesi",
+          "valore": false
+        }
+      ]
+    }
+  ]
+}
