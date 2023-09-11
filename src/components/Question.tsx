@@ -47,15 +47,21 @@ const Question = ({
 
   return (
     <form>
-      <div>
+      <div className="grid justify-items-center gap-4 rounded-md h-full m-8 p-20 bg-gray">
+        <h1 className="text-xl mb-8">Domanda n. {currentStep + 1}</h1>
         <p>{currentQuestion.domanda}</p>
-        <div>
+        <div className="flex gap-2">
           <Radio form={form} label="Vero" value="true" />
           <Radio form={form} label="Falso" value="false" />
         </div>
-        {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="text-red">{error.toUpperCase()}</p>}
 
-        <button onClick={form.handleSubmit(handleSave)}>Submit</button>
+        <button
+          className="bg-orange w-32 h-10 rounded-md hover:bg-red transition duration-150 ease-out hover:ease-in"
+          onClick={form.handleSubmit(handleSave)}
+        >
+          Submit
+        </button>
       </div>
     </form>
   );

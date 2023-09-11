@@ -20,8 +20,10 @@ const Result = ({ risposte }: ResultProps) => {
     setRisultato((risposteCorrette.length * 100) / risposte.length);
   }, []);
   return (
-    <div>
-      <h1>Il tuo risultato : {risultato} %</h1>
+    <div className="flex flex-col font-bold text-2xl justify-center items-center h-screen bg-gray">
+      <h1 className={risultato < 50 ? "text-red" : "text-green"}>
+        Il tuo risultato : {risultato.toFixed(2)} %
+      </h1>
     </div>
   );
 };
