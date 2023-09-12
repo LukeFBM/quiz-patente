@@ -14,8 +14,8 @@ function App() {
   const { currentSection, currentStep, data } = useGlobalContext();
 
   if (currentSection === null) return <Starter />;
-  if (currentStep === null && currentSection !== null) return <Section />;
   if (currentSection > data.data.length - 1) return <Result />;
+  if (currentStep === null && currentSection !== null) return <Section />;
 
   return <Domanda />;
 }

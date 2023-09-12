@@ -48,6 +48,8 @@ const AppContext = ({ children }: AppContextProps) => {
     data,
   };
 
+  console.log(value);
+
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
   );
