@@ -1,7 +1,7 @@
-import Question from "./components/Question";
-import data from "./api/data.json";
+import data from "./api/new_data.json";
 import { useState } from "react";
 import Result from "./components/Result";
+import Section from "./components/Section";
 
 export interface Risposta {
   domanda: string;
@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="grid items-center ">
       {currentStep >= 0 && (
-        <Question
+        <Section
           currentStep={currentStep}
           setCurrentStep={setCurrentStep}
           setRisposte={setRisposte}
