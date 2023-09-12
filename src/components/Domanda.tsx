@@ -1,42 +1,48 @@
-import data from "../api/data.json";
 import { useForm } from "react-hook-form";
 import Radio from "./Radio";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Risposta } from "../App";
+import { useGlobalContext } from "../context/Context";
 
-interface QuestionProps {
-  currentStep: number;
-  setCurrentStep: React.Dispatch<React.SetStateAction<number | null>>;
-  setRisposte: React.Dispatch<React.SetStateAction<Risposta[]>>;
-  risposte: Risposta[];
-}
-
-interface QuestionFormData {
+interface DomandaFormData {
   risposta: string;
 }
 
-const QuestionFormSchema = yup.object().shape({
+const DomandaFormSchema = yup.object().shape({
   risposta: yup.string().required("campo obbligatorio"),
 });
 
-const Question = ({
-  setCurrentStep,
-  currentStep,
-  setRisposte,
-  risposte,
-}: QuestionProps) => {
-  const currentQuestion = data.domande[currentStep]; // data.data[domande]
+const Domanda = () => {
+  const {
+    currentSection: _currentSection,
+    setCurrentSection,
+    currentStep: _currentStep,
+    risposte,
+    setRisposte,
+    setCurrentStep,
+    data,
+  } = useGlobalContext();
 
-  const form = useForm<QuestionFormData>({
-    resolver: yupResolver(QuestionFormSchema),
+  const currentSection = _currentSection ?? 0;
+  const currentStep = _currentStep ?? 0;
+
+  const currentQuestion = data.data[currentSection].domande[currentStep];
+  const sectionDomande = data.data[currentSection].domande;
+
+  const form = useForm<DomandaFormData>({
+    resolver: yupResolver(DomandaFormSchema),
   });
 
-  const handleSave = ({ risposta }: QuestionFormData) => {
+  const handleSave = ({ risposta }: DomandaFormData) => {
+    if (currentStep === sectionDomande.length - 1) {
+      setCurrentSection(currentSection + 1);
+      setCurrentStep(null);
+      return;
+    }
     setCurrentStep(currentStep + 1);
     const newRisposta = {
-      domanda: data.domande[currentStep].domanda,
-      valore: data.domande[currentStep].valore.toString(),
+      domanda: currentQuestion.domanda,
+      valore: currentQuestion.valore.toString(),
       risposta,
     };
     setRisposte([...risposte, newRisposta]);
@@ -67,4 +73,4 @@ const Question = ({
   );
 };
 
-export default Question;
+export default Domanda;

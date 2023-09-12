@@ -1,12 +1,8 @@
-import { useState, useEffect } from "react";
-import { Risposta } from "../App";
+import { useEffect } from "react";
+import { useGlobalContext } from "../context/Context";
 
-interface ResultProps {
-  risposte: Risposta[];
-}
-
-const Result = ({ risposte }: ResultProps) => {
-  const [risultato, setRisultato] = useState<number>(0);
+const Result = () => {
+  const { risposte, setRisultato, risultato } = useGlobalContext();
 
   useEffect(() => {
     const risposteCorrette = risposte

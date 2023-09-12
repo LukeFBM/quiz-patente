@@ -11,3 +11,9 @@ export interface Domande {
   domanda: string;
   valore: boolean;
 }
+
+export interface Risposta {
+  domanda: string;
+  valore: string;
+  risposta: string;
+}
