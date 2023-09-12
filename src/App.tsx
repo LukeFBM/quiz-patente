@@ -1,5 +1,5 @@
-import data from "./api/new_data.json";
 import { useState } from "react";
+import data from "./api/new_data.json";
 import Result from "./components/Result";
 import Section from "./components/Section";
 
@@ -15,11 +15,12 @@ function App() {
   const [risposte, setRisposte] = useState<Risposta[]>([]);
 
   const startQuiz = () => {
-    setCurrentStep(0);
     setCurrentSection(0);
   };
 
-  if (currentStep === null || currentSection === null) {
+  console.log(currentSection);
+
+  if (currentSection === null) {
     return (
       <>
         <div className="flex flex-col w-screen h-screen justify-center items-center bg-gray">
@@ -35,14 +36,15 @@ function App() {
       </>
     );
   }
-  /* 
-  if (currentStep > data.domande.length - 1) {
+  // se la current section è maggiore del numero di sezioni disponibile, manda result
+
+  if (currentSection > data.data.length - 1) {
     return <Result risposte={risposte} />;
-  } */
+  }
 
   return (
     <div className="grid items-center ">
-      {currentStep >= 0 && (
+      {currentSection >= 0 && (
         <Section
           currentStep={currentStep}
           currentSection={currentSection}
