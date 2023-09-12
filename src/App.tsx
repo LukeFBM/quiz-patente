@@ -11,9 +11,15 @@ export interface Risposta {
 
 function App() {
   const [currentStep, setCurrentStep] = useState<number | null>(null);
+  const [currentSection, setCurrentSection] = useState<number | null>(null);
   const [risposte, setRisposte] = useState<Risposta[]>([]);
 
-  if (currentStep === null) {
+  const startQuiz = () => {
+    setCurrentStep(0);
+    setCurrentSection(0);
+  };
+
+  if (currentStep === null || currentSection === null) {
     return (
       <>
         <div className="flex flex-col w-screen h-screen justify-center items-center bg-gray">
@@ -21,7 +27,7 @@ function App() {
 
           <button
             className="bg-orange w-32 h-10 rounded-md hover:bg-red transition duration-150 ease-out hover:ease-in"
-            onClick={() => setCurrentStep(0)}
+            onClick={startQuiz}
           >
             START QUIZ
           </button>
@@ -29,15 +35,18 @@ function App() {
       </>
     );
   }
-
+  /* 
   if (currentStep > data.domande.length - 1) {
     return <Result risposte={risposte} />;
-  }
+  } */
+
   return (
     <div className="grid items-center ">
       {currentStep >= 0 && (
         <Section
           currentStep={currentStep}
+          currentSection={currentSection}
+          setCurrentSection={setCurrentSection}
           setCurrentStep={setCurrentStep}
           setRisposte={setRisposte}
           risposte={risposte}

@@ -11,6 +11,8 @@ interface SectionProps {
   setCurrentStep: React.Dispatch<React.SetStateAction<number | null>>;
   setRisposte: React.Dispatch<React.SetStateAction<Risposta[]>>;
   risposte: Risposta[];
+  currentSection: number;
+  setCurrentSection: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 interface SectionFormData {
@@ -22,31 +24,28 @@ const SectionFormSchema = yup.object().shape({
 });
 
 const Section = ({
+  currentSection,
+  setCurrentSection,
   setCurrentStep,
   currentStep,
   setRisposte,
   risposte,
 }: SectionProps) => {
-
-    const sections = data.data as Sezione[]
-
-
-    const currentQuestion = sections[0].title 
-    console.log(currentQuestion)
+  const sections = data.data as Sezione[];
 
   const form = useForm<SectionFormData>({
     resolver: yupResolver(SectionFormSchema),
   });
 
   const handleSave = ({ risposta }: SectionFormData) => {
-    setCurrentStep(currentStep + 1);
+    /* setCurrentStep(currentStep + 1);
     const newRisposta = {
-      domanda: data.data[currentStep].domande,
+      domanda: data.data[currentStep].domande[].domanda
       valore: data.data[currentStep].domande[].valore
-      risposta,
-    };
+      risposta, */
+    /*  };
     setRisposte([...risposte, newRisposta]);
-    form.reset();
+    form.reset(); */
   };
 
   const error = form.formState.errors.risposta?.message;
@@ -55,7 +54,7 @@ const Section = ({
     <form>
       <div className="grid justify-items-center gap-4 rounded-md h-full m-8 p-20 bg-gray">
         <h1 className="text-xl mb-8">Domanda n. {currentStep + 1}</h1>
-        <p>{currentQuestion.domanda}</p>
+        <p>{currentSection}</p>
         <div className="flex gap-2">
           <Radio form={form} label="Vero" value="true" />
           <Radio form={form} label="Falso" value="false" />

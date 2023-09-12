@@ -26,7 +26,7 @@ const Question = ({
   setRisposte,
   risposte,
 }: QuestionProps) => {
-  const currentQuestion = data.domande[currentStep];
+  const currentQuestion = data.domande[currentStep]; // data.data[domande]
 
   const form = useForm<QuestionFormData>({
     resolver: yupResolver(QuestionFormSchema),
