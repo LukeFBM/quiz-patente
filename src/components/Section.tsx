@@ -4,6 +4,7 @@ import Radio from "./Radio";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Risposta } from "../App";
+import { Sezione } from "../lib/types";
 
 interface SectionProps {
   currentStep: number;
@@ -26,7 +27,12 @@ const Section = ({
   setRisposte,
   risposte,
 }: SectionProps) => {
-  const currentQuestion = data.data.
+
+    const sections = data.data as Sezione[]
+
+
+    const currentQuestion = sections[0].title 
+    console.log(currentQuestion)
 
   const form = useForm<SectionFormData>({
     resolver: yupResolver(SectionFormSchema),
@@ -35,8 +41,8 @@ const Section = ({
   const handleSave = ({ risposta }: SectionFormData) => {
     setCurrentStep(currentStep + 1);
     const newRisposta = {
-      domanda: data.domande[currentStep].domanda,
-      valore: data.domande[currentStep].valore.toString(),
+      domanda: data.data[currentStep].domande,
+      valore: data.data[currentStep].domande[].valore
       risposta,
     };
     setRisposte([...risposte, newRisposta]);
